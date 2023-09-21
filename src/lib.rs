@@ -2,8 +2,6 @@ use std::fmt::{Debug, Display};
 use std::io;
 use std::str::FromStr;
 
-use text_io::read;
-
 /// Reads a single line and converts it to a vector of type T
 /// # Example
 /// ```
@@ -31,6 +29,14 @@ pub fn read_vec<T>() -> Vec<T> where <T as FromStr>::Err: Debug, T: FromStr {
         .collect::<Vec<T>>()
 }
 
+/// Reads a single line and converts it to a vector of type T
+/// # Example
+/// ```
+/// use soi::read_vec_len;
+/// let v: Vec<usize> = read_vec_len(3);
+/// ```
+/// # Panics
+/// Panics if the input is not a valid vector of type T
 pub fn read_vec_len<T>(len: usize) -> Vec<T> where <T as FromStr>::Err: Debug, T: FromStr + Display {
     let mut v = Vec::with_capacity(len);
     for _ in 0..len {
@@ -38,4 +44,15 @@ pub fn read_vec_len<T>(len: usize) -> Vec<T> where <T as FromStr>::Err: Debug, T
         v.push(a);
     }
     v
+}
+
+/// Calls the read macro from text_io
+#[macro_export]
+macro_rules! read {
+    () => {
+        text_io::read!()
+    };
+    ($($arg:tt)*) => {
+        read!($($arg)*)
+    };
 }
