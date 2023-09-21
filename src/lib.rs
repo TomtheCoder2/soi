@@ -15,18 +15,29 @@ pub fn read_vec<T>() -> Vec<T> where <T as FromStr>::Err: Debug, T: FromStr {
     io::stdin().read_line(&mut input).unwrap();
     input
         .trim()
-        .split(" ")
+        .split(' ')
         .map(|x| x.to_string())
         // delete all empty strings
-        .filter(|x| x != "")
+        .filter(|x| !x.is_empty())
         .collect::<Vec<String>>()
         .iter()
-        .filter(|x| **x != " ".to_string())
+        .filter(|x| *x != " ")
         .map(|x| match x.parse::<T>() {
             Ok(x) => x,
             Err(e) => panic!("Error parsing input: {:?}", e),
         })
         .collect::<Vec<T>>()
+}
+
+/// Calls the read macro from text_io
+#[macro_export]
+macro_rules! read {
+    () => {
+        text_io::read!()
+    };
+    ($($arg:tt)*) => {
+        read!($($arg)*)
+    };
 }
 
 /// Reads a single line and converts it to a vector of type T
@@ -44,15 +55,4 @@ pub fn read_vec_len<T>(len: usize) -> Vec<T> where <T as FromStr>::Err: Debug, T
         v.push(a);
     }
     v
-}
-
-/// Calls the read macro from text_io
-#[macro_export]
-macro_rules! read {
-    () => {
-        text_io::read!()
-    };
-    ($($arg:tt)*) => {
-        read!($($arg)*)
-    };
 }
