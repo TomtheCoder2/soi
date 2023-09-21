@@ -61,6 +61,6 @@ pub fn read_vec_len<T>(len: usize) -> Vec<T> where <T as FromStr>::Err: Debug, T
 #[macro_export]
 macro_rules! print_test_case {
     ($case:expr, $($arg:tt)*) => {
-        println!("Case #{}: {}", $case, format_args!($($arg)*));
+        println!("Case #{}: {}", $case, format_args!("{}", $($arg)*));
     };
 }
