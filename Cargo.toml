@@ -1,9 +1,13 @@
 [package]
-name = "soi"
+name = "soi-io"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
+readme = "README.md"
+authors = ["TomtheCoder2 (Nautilus) <@TomtheCoder2>"]
+description = "A simple library for reading and writing from stdin and stdout."
+keywords = ["io", "stdin", "stdout", "read", "write"]
+repository = "https://github.com/TomtheCoder2/soi"
 
 [dependencies]
 text_io = "0.1.12"
