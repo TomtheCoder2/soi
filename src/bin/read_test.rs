@@ -1,4 +1,4 @@
-use soi::{read, read_vec, read_vec_len};
+use soi_io::{read, read_vec, read_vec_len};
 
 fn main() {
     let n: i32 = read!();

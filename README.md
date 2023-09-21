@@ -5,7 +5,7 @@ Provides simple io for reading and writing from stdin and stdout.
 ## Usage
 
 ```rust
-use soi::{read, read_vec, read_vec_len};
+use soi_io::{read, read_vec, read_vec_len};
 
 fn main() {
     // reads the first int from stdin
