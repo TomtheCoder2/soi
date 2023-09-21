@@ -1,6 +1,7 @@
 use std::fmt::{Debug, Display};
 use std::io;
 use std::str::FromStr;
+use text_io::read;
 
 /// Reads a single line and converts it to a vector of type T
 /// # Example
@@ -30,14 +31,8 @@ pub fn read_vec<T>() -> Vec<T> where <T as FromStr>::Err: Debug, T: FromStr {
 }
 
 /// Calls the read macro from text_io
-#[macro_export]
-macro_rules! read {
-    () => {
-        text_io::read!()
-    };
-    ($($arg:tt)*) => {
-        read!($($arg)*)
-    };
+pub fn read<T>() -> T where <T as FromStr>::Err: Debug, T: FromStr + Display {
+    read!()
 }
 
 /// Reads a single line and converts it to a vector of type T

@@ -9,7 +9,7 @@ use soi_io::{read, read_vec, read_vec_len};
 
 fn main() {
     // reads the first int from stdin
-    let n: i32 = read!();
+    let n: i32 = read();
     // reads the next 3 ints from stdin (on the same line)
     let v: Vec<usize> = read_vec_len(3);
     // reads the rest of the line as ints
