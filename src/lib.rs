@@ -5,7 +5,7 @@ use std::str::FromStr;
 /// Reads a single line and converts it to a vector of type T
 /// # Example
 /// ```
-/// use soi::read_vec;
+/// use soi_io::read_vec;
 /// let v: Vec<usize> = read_vec();
 /// ```
 /// # Panics
@@ -43,7 +43,7 @@ macro_rules! read {
 /// Reads a single line and converts it to a vector of type T
 /// # Example
 /// ```
-/// use soi::read_vec_len;
+/// use soi_io::read_vec_len;
 /// let v: Vec<usize> = read_vec_len(3);
 /// ```
 /// # Panics
